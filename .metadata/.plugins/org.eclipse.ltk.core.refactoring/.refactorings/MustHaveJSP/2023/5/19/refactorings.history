@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;ScriptElements.jsp&apos; to &apos;ScriptElements.jsp&apos;&#x0D;&#x0A;- Original project: &apos;MustHaveJSP&apos;&#x0D;&#x0A;- Destination element: &apos;ScriptElements.jsp&apos;&#x0D;&#x0A;- Original element: &apos;ScriptElements.jsp&apos;" description="Copy file" element1="src/main/webapp/01DirectiveScript/ScriptElements.jsp" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1683794267027" target="/MustHaveJSP/src/main/webapp/01DirectiveScript/ScriptElements.jsp" units="0" version="1.0"/>
+</session>
