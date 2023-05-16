@@ -27,8 +27,10 @@ pageContext.setAttribute("pagePerson", new Person("한석봉", 99));
 	
 	<h2>include된 파일에서 page 영역 읽어오기</h2>
 	<%@ include file="PageInclude.jsp" %>
+	<!-- 외부에 있는 jsp 파일을 안으로 부름. -->
 	
 	<h2>페이지 이동 후 page 영역 읽어오기</h2>
 	<a href="PageLocation.jsp">PageLocation.jsp 바로가기</a>
+	<!-- get 방식으로 호출 / 값이 Null로 넘어감. -->
 </body>
 </html>
