@@ -2,23 +2,12 @@
     pageEncoding="UTF-8"%>
 <%
 String popupMode = "on";
-
-Cookie[] cookies = request.getCookies();
-if (cookies != null) {
-	for (Cookie c : cookies) {
-		String cookieName = c.getName();
-		String cookieValue = c.getValue();
-		if (cookieName.equals("PopupClose")) {
-			popupMode = cookieValue;
-		}
-	}
-}
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>쿠키를 이용한 팝업 관리</title>
+<title>쿠키를 이용한 팝업 관리 ver 0.1</title>
 <style>
 	div#popup {
 		position: absolute; top:100px; left:50px; color:yellow;
@@ -29,26 +18,12 @@ if (cookies != null) {
 		border:1px solid gray; padding:10px; color:black;
 	}
 </style>
-<!-- 제이쿼리 불러오기 / 요즘은 리액트 사용 -->
+<!-- 제이쿼리 불러오기 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 $(function() {
 	$('#closeBtn').click(function () {
 		$('#popup').hide();
-		var chkVal = $("input:checkbox[id=inactiveToday]:checked").val();
-		console.log("chkVal", chkVal);
-		if (chkVal != undefined) {  // undefined가 아니면 아래의 ajax 실행
-			// ajax: 비동기통신을 위한 방식 / 요즘은 엑시오스 사용
-			$.ajax({
-				url : './PopupCookie.jsp',
-				type : 'get',
-				data : {inactiveToday : chkVal},
-				dataType : "text",
-				success : function(resData) {
-					if (resData != '') location.reload();  // 현재 보고 있는 페이지를 재로딩
-				}
-			});	
-		}
 	});
 });
 </script>
