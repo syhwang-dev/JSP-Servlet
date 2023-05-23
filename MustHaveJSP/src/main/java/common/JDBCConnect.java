@@ -1,3 +1,4 @@
+// 8장. 모델1 방식의 회원제 게시판 만들기
 package common;
 
 import java.sql.Connection;
@@ -7,8 +8,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.servlet.ServletContext;
+
 public class JDBCConnect {
-	Connection con;
+	public Connection con;
 	public Statement stmt;
 	public PreparedStatement psmt;
 	public ResultSet rs;
@@ -34,6 +37,26 @@ public class JDBCConnect {
 			e.printStackTrace();
 		}
 	}
+	
+	// application을 사용하는 생성자
+    public JDBCConnect(ServletContext application) {
+        try {
+            // JDBC 드라이버 로드
+            String driver = application.getInitParameter("MysqlDriver"); 
+            Class.forName(driver); 
+
+            // DB에 연결
+            url = application.getInitParameter("MysqlURL"); 
+            id = application.getInitParameter("MysqlID");
+            pwd = application.getInitParameter("MysqlPwd");
+            con = DriverManager.getConnection(url, id, pwd);
+
+            System.out.println("DB 연결 성공(application을 사용하는 생성자)"); 
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 	
 	public static void main(String[] args) {
 		// static이 아니기 때문에 생성자를 만들어줘야 함.
