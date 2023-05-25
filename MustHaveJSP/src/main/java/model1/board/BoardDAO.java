@@ -92,12 +92,18 @@ public class BoardDAO extends JDBCConnect {
         }
              
         query += " ORDER BY num DESC LIMIT ?,?";
+//        query += " ORDER BY num DESC LIMIT "
+//        		+ map.get("start")
+//        		+ ", "
+//        		+ map.get("end");
 
         try {
             // 쿼리문 완성 
             psmt = con.prepareStatement(query);
             psmt.setInt(1, (int)map.get("start")-1);
             psmt.setInt(2, (int)map.get("pageSize"));
+//            psmt.setString(1, map.get("start").toString());
+//            psmt.setString(2, map.get("end").toString());
             
             // 쿼리문 실행 
             rs = psmt.executeQuery();
@@ -134,8 +140,9 @@ public class BoardDAO extends JDBCConnect {
             String query = "INSERT INTO board ( "
                          + " num,title,content,id,visitcount) "
                          + " VALUES ( "
-                         + " (select * from (select max(num)+1 from board) next), ?, ?, ?, 0)";
-//                         + " seq_board_num.NEXTVAL, ?, ?, ?, 0)";  
+//                         + " (select * from (select max(num)+1 from board) next), ?, ?, ?, 0)";
+//                         + " seq_board_num.NEXTVAL, ?, ?, ?, 0)";
+            			 + " ?, ?, ?, 0)";
 
             psmt = con.prepareStatement(query);  // 동적 쿼리 
             psmt.setString(1, dto.getTitle());  
