@@ -81,7 +81,8 @@ public class MemberDAO extends JDBCConnect3 {
 		}
 		catch (Exception e) {
 			e.printStackTrace();
-		} finally {
+		}
+		finally {
 			try {
 				if (rs != null) rs.close();
 				if (psmt != null) psmt.close();
