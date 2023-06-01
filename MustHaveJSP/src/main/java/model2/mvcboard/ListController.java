@@ -44,10 +44,11 @@ public class ListController extends HttpServlet {
             pageNum = Integer.parseInt(pageTemp); // 요청받은 페이지로 수정
 
         // 목록에 출력할 게시물 범위 계산
-        int start = (pageNum - 1) * pageSize + 1;  // 첫 게시물 번호
+        int start = (pageNum - 1) * pageSize;  // 첫 게시물 번호
         int end = pageNum * pageSize; // 마지막 게시물 번호
         map.put("start", start);
-        map.put("end", end);
+//        map.put("end", end);
+        map.put("pageSize", pageSize);
         /* 페이지 처리 end */
 
         List<MVCBoardDTO> boardLists = dao.selectListPage(map);  // 게시물 목록 받기

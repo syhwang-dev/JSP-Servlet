@@ -41,7 +41,7 @@
     <c:when test="${ empty boardLists }">  <!-- 게시물이 없을 때 -->
         <tr>
             <td colspan="6" align="center">
-                등록된 게시물이 없습니다^^*
+                등록된 게시물이 없습니다.
             </td>
         </tr>
     </c:when>
